@@ -68,6 +68,10 @@ public class ProductController {
         productService.deleteProduct(id);
         return "redirect:/products";
     }
-
-//
+    @GetMapping("/product/{productId}")
+    public String viewProductDetails(@PathVariable Long productId, Model model) {
+        Product product = productService.getProductById(productId);
+        model.addAttribute("product", product);
+        return "product-details";
+    }
 }

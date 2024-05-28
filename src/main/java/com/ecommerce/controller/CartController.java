@@ -111,22 +111,9 @@ public class CartController {
        return null;
     }
 
-//    @GetMapping("/delete/{cartId}")
-//    public String deleteCartItem(@PathVariable Long cartId) {
-//       try {
-//           cartServiceImpl.deleteCart(cartId);
-//           return "redirect:/cart";
-//       }catch (Exception ex)
-//       {
-//           ex.printStackTrace();
-//       }
-//       return null;
-//    }
-
 
     @GetMapping("/addQuantity/{productId}")
     public String addQuantityCart(@PathVariable("productId") Long productId) {
-
         Product product = productService.getProductById(productId);
 
         HttpSession session = httpServletRequest.getSession();
